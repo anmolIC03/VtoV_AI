@@ -1,5 +1,7 @@
 Magical AI Adventure (Real-Time Voice UI)
 
+![App Demo](./demo.gif)
+
 A full-stack, real-time multimodal AI application built with **React**, **NestJS**, and the **Gemini Multimodal Live API**. 
 
 This project creates an interactive, 1-minute voice adventure for children. It features a cheerful AI "cartoon dog" that can see the user's screen, hold a natural low-latency voice conversation, and dynamically change the UI background color based on the child's vocal requests using Tool Calling.
