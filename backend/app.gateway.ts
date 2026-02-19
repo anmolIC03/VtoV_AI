@@ -13,8 +13,8 @@ export class GeminiAudioGateway implements OnGatewayConnection, OnGatewayDisconn
     
     // Now TypeScript knows this is the WebSocket class constructor
     this.geminiWs = new WebSocket(url);
-    this.geminiWs.on('error', (error) => console.error("❌ Gemini Error:", error));
-    this.geminiWs.on('close', (code, reason) => console.log("⚠️ Gemini Closed:", code, reason.toString()));
+    this.geminiWs.on('error', (error) => console.error("Gemini Error:", error));
+    this.geminiWs.on('close', (code, reason) => console.log("Gemini Closed:", code, reason.toString()));
 
     this.geminiWs.on('open', () => {
       // Step 1: Initialize session with persona and UI tools
