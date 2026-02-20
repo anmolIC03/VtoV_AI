@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 export default function GeminiAdventureApp() {
   const [isRecording, setIsRecording] = useState(false);
   const [bgColor, setBgColor] = useState('#f0f8ff'); 
-  const [timeLeft, setTimeLeft] = useState(60); 
+  const [timeLeft, setTimeLeft] = useState(180); 
   const nextPlayTimeRef = useRef(0); // Tracks when the next audio chunk should play
   const wsRef = useRef(null);
   const audioCtxRef = useRef(null);
@@ -82,7 +82,7 @@ export default function GeminiAdventureApp() {
     if (processorRef.current) processorRef.current.disconnect();
     if (streamRef.current) streamRef.current.getTracks().forEach(track => track.stop());
     setIsRecording(false);
-    setTimeLeft(60);
+    setTimeLeft(180);
   };
 
   // Decode and play Gemini's 24kHz base64 audio stream
