@@ -14,7 +14,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useWebSocketAdapter(new WsAdapter(app)); 
   
-  await app.listen(8081);
-  console.log('🚀 Backend WebSocket listening on ws://localhost:8081');
+  const port = process.env.PORT || 8081;
+  await app.listen(port, '0.0.0.0');
+  console.log(`Backend WebSocket listening on port ${port}`);
 }
 bootstrap();
