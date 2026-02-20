@@ -22,7 +22,10 @@ export default function GeminiAdventureApp() {
   }, [isRecording, timeLeft]);
 
   const startConversation = async () => {
-    wsRef.current = new WebSocket('ws://localhost:8081');
+    wsRef.current = new WebSocket('wss://magicalaibackend-ln9deta4.b4a.run/');
+    wsRef.current.onopen = () => console.log("SUCCESSFULLY CONNECTED TO BACKEND!");
+    wsRef.current.onclose = (e) => console.log("DISCONNECTED FROM BACKEND:", e.code, e.reason);
+    wsRef.current.onerror = (err) => console.error("WEBSOCKET ERROR:", err);
     
     // Gemini Output is 24kHz PCM16
     audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 24000 });
