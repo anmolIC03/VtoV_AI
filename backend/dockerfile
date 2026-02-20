@@ -5,17 +5,12 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy package.json and package-lock.json first
-# (Doing this first makes future builds much faster due to Docker caching)
 COPY package*.json ./
 
-# Install all dependencies (including ts-node and nestjs)
 RUN npm install
 
-# Copy all your source code and the park.jpg image into the container
 COPY . .
 
-# Expose the port (this tells the hosting platform which port to listen to)
 EXPOSE 8081
 
-# Start the server using the exact command you use locally
 CMD ["npx", "ts-node", "main.ts"]
